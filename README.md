@@ -29,12 +29,13 @@ The Project contains mainly two pages.viz.
 
 ### Authentication
 This is the sign in page for the admin.
-![Memes Feed Page](./images/Auth.png)
-
+<img src="./images/Auth.png" 
+style="width:250px;height:180px;"/>
 
 ### Map Dashboard
 This is where you can view all/particular asset/assets present in the database.
-![Memes Form Page](./images/Dashboard.png)
+<img src="./images/Dashboard.png" 
+style="width:250px;height:180px;"/>
 
 ## Setup
 To run this on your local machine,simply clone the repo and **"cd"** into the **"asset-tracking-backend"** directory:
@@ -45,19 +46,20 @@ Then run the following command:
 mvn spring-boot:run
 ```
 
-This will make the backend up and running.Now open the **"login.html"** present under **"sse-asset-frontend"** directory.
+This will make the backend up and running.Now open the **"login.html"** present under **"asset-tracking-frontend"** directory.
 
 yaay! project setup is complete...you can try out all the functionalities now!😊
 
 ## Structure
 The project has the following structure:
-![Project Structure](./images/Structure.png)
+
+![Project Structure](./images/Structure-final.png)
 
 **asset-tracking-backend**
 
 Contains all backend logic of the application.
 
-**sse-asset-frontend**
+**asset-tracking-frontend**
 
 Contains all frontend logic of the application.
 

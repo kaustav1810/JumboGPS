@@ -56,7 +56,6 @@ function makeFetchCallAndShowAssetData(url, isSingleObject) {
     .then((response) => {
       // handle response code
       if (response.ok) {
-        console.log("Data Loaded Successfully");
         return response.json();
       } else {
         throw new Error(response.status + "");
@@ -76,7 +75,6 @@ function makeFetchCallAndShowAssetData(url, isSingleObject) {
     })
     .catch((error) => {
       // else if error occurred catch and show alter(<correct message according to response status>)
-      console.error("Error while Loading data:", error);
       if (error.message === "403") {
         showPopupNotification("Unauthorized");
       } else if (error.message === "400") {
@@ -103,7 +101,6 @@ function getHistoryData(assetId) {
     .then((response) => {
       // handle response code
       if (response.ok) {
-        console.log("Data Loaded Successfully");
         return response.json();
       } else {
         throw new Error(response.status + "");
@@ -115,7 +112,6 @@ function getHistoryData(assetId) {
     })
     .catch((error) => {
       // else if error occurred catch and show alter(<correct message according to response status>)
-      console.error("Error while Loading data:", error);
       localStorage.removeItem("current-asset-id");
       if (error.message === "403") {
         showPopupNotification("Unauthorized");
@@ -127,58 +123,6 @@ function getHistoryData(assetId) {
         showPopupNotification("Something Went Wrong. Please contact Support Team.");
       }
     });
-}
-
-function authFetch() {
-  return fetch("https://jumbogps-geo.anugrahsinghal.repl.co/assets?limit=", {
-    method: "GET", // *GET, POST, PUT, DELETE, etc.
-    headers: {
-      Authorization: `Bearer ${jwtToken}`,
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-
-      let centroid = data.centroid;
-      let assetAsFeatures = getAllFeaturesFromAssets(data);
-
-      let geoJson = {
-        type: "FeatureCollection",
-        features: assetAsFeatures,
-      };
-
-      renderMapForAssetViewData(centroid, geoJson);
-    })
-    .catch((err) => {
-      console.log("err");
-    });
-}
-
-/**
- * This function is triggerd for notifications
- * It recieves message from the functions and display that message as a notification
- * hides after a delay of 5 seconds
- * @param {*} message The Message to be displayed in the Notification Frame
- */
-
-function triggerIframe(message) {
-  // alert(message);
-  console.log("IFRAME TRIGGER " + message);
-  let notification = document.querySelector("#notification");
-  let notificationMsg = document.querySelector("#notification-message");
-  notificationMsg.innerText = message;
-
-  notification.style.display = "unset";
-
-  console.log("END IFRAME TRIGGER " + message);
-
-  setTimeout(() => {
-    console.log("Hide I frame start");
-    let notification = document.querySelector("#notification");
-    notification.style.display = "none";
-    console.log("Hide I frame complete");
-  }, 5000);
 }
 
 function createAsset(asset) {
@@ -206,26 +150,5 @@ function createAsset(asset) {
       console.error("Error while creating asset:", error);
     });
 
-  // .then((response) => {
-  //   console.dir(response);
-  //   if (response.status === 409 || response.status === "409") {
-  //     console.error("Duplicate Meme Posted");
-  //     triggerIframe("Duplicate Data");
-  //   } else if (!response.ok) {
-  //     console.error("Error with Server Response : " + response.status);
-  //     triggerIframe("Something went wrong! Please try again.");
-  //   } else if (response.ok || response.status === 200) {
-  //     console.log("meme posted");
-  //     triggerIframe("Meme Created!");
-  //     return response.json();
-  //   }
-  // })
-  // .then((data) => {
-  //   console.log("Meme Posted Successfully:", JSON.stringify(data));
-  // })
-  // .catch((error) => {
-  //   triggerIframe("Something went wrong! Please try again.");
-  //   console.error("Error while posting meme:", error);
-  // });
 }
 

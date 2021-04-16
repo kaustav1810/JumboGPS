@@ -115,8 +115,7 @@ function showAssetView(data) {
   showOrHideLayers(heatmapLayers,"visible","none");
 
   if (data.assets.length === 0) {
-    console.log("No Assets Found");
-    triggerIframe("No Assets Found");
+    showPopupNotification("No Assets Found");
     return;
   }
 

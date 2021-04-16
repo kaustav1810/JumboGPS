@@ -248,12 +248,13 @@ transform: translate(1px,1px);
     left: 0;
 }
 
-.fas.fa-chevron-up{
+.fa-chevron-up,.fa-chevron-down{
     text-align: center;
     width:100%;
     cursor: pointer;
     display: none;
 }
+
 
 .has-content.effect-17[type="datetime-local"] ~ .focus-border{
     width: 100%;
@@ -308,25 +309,39 @@ input[type="datetime-local"]:in-range::-webkit-datetime-edit-year-field,
     cursor: pointer;
 }
 
-@keyframes slideUp{
+@keyframes slideUpMap {
     from{
-        height:10vh;
+        height: 95vh;
     }
 
     to{
-        height: 50vh;
+        height: 40vh;
     }
 }
-@keyframes slideDown{
+@keyframes slideUpDrawer {
     from{
-        height:50vh;
+        height: 5vh;
     }
 
     to{
-        height: 10vh;
+        height:60vh;
     }
 }
+@keyframes slideDownDrawer {
+    from{
+        height: 60vh;
+    }
 
-.drawer{
-    transition: 0.4s all ease;
+    to{
+        height:5vh;
+    }
+}
+@keyframes slideDownMap {
+    from{
+        height: 40vh;
+    }
+
+    to{
+        height:95vh;
+    }
 }

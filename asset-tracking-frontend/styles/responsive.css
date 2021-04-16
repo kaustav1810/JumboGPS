@@ -97,11 +97,14 @@
     }
 
     .filters{
-        margin-top: 10px;
-        height:50vh;
+        height:5vh;
         justify-content: space-evenly;
         display: flex;
         flex-direction: column;
+    }
+
+    #map{
+        height: 95vh;
     }
 
     .mapboxgl-ctrl-geocoder{
@@ -145,6 +148,14 @@
 
     .fas.fa-sign-in-alt{
         margin-right: 3px;
+    }
+
+    .fas.fa-chevron-up{
+        display: block;
+    }
+
+    form{
+        display:none;
     }
 
    
